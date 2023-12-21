@@ -1,5 +1,5 @@
 import './Login.css'
-// import img1 from '../../../assets/hockessin-adoption.png'
+import img1 from '../../../assets/Blogs-Images-2023-01-03T181902.201.jpg'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import { useContext, useEffect, useState } from 'react';
@@ -73,8 +73,8 @@ const Login = () => {
     return (
         <div className="loginContainer px-32 pt-5 pb-5">
             <div className=" grid grid-cols-2 items-center bg-gradient-to-l from-white to-gray text-black rounded-lg">
-                <div className="text-center lg:text-left p-5">
-                    {/* <img src={img1} alt="" /> */}
+                <div className="text-center rounded-l-lg lg:text-left">
+                    <img className=' rounded-l-lg' src={img1} alt="" />
                 </div>
                 <div className="w-9/12 mx-auto">
                     <p className=' font-bold text-5xl text-center'>Login</p>

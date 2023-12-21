@@ -46,17 +46,23 @@ const Header = () => {
                 <NavLink to={"/"}>Home</NavLink>
             </li>
             <li>
-                <NavLink to={'/petlisting'}>Pet Listing</NavLink>
+                <NavLink to={'/tasks'}>Tasks</NavLink>
             </li>
             <li>
-                <NavLink to={"/donationCampaigns"}>Donation Campaigns</NavLink>
+                <NavLink to={"/projects"}>Projects</NavLink>
+            </li>
+            <li>
+                <NavLink to={"/calendar"}>Calendar</NavLink>
+            </li>
+            <li>
+                <NavLink to={"/Support"}>Support</NavLink>
             </li>
             <li>
                 {user ? (
                     <>
                         <div className=" flex gap-7">
                             <li>
-                                {/* <NavLink to={"/profile"}>Profile</NavLink> */}
+                                <NavLink to={"/profile"}>Profile</NavLink>
                             </li>
                         </div>
                     </>
@@ -161,9 +167,9 @@ const Header = () => {
                                 <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[100] p-2 shadow bg-[#adf6fc] rounded-box w-52">
                                     <li><a onClick={() => navigate("/profile")}><button>Profile</button></a></li>
                                     {user && isAdmin === true ? (
-                                        <NavLink className="px-3" to={'/dashboard/addnewpet'}>Dashboard</NavLink>
+                                        <NavLink className="px-3" to={'/dashboard/createNewTasks'}>Dashboard</NavLink>
                                     ) : user ? (
-                                        <NavLink className="px-3" to={'/dashboard/addnewpet'}>Dashboard</NavLink>
+                                        <NavLink className="px-3" to={'/dashboard/createNewTasks'}>Dashboard</NavLink>
                                     ) : null}
                                     <li><a onClick={handleLogOut}>Logout</a></li>
                                 </ul>

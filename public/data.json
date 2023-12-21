@@ -1,0 +1,37 @@
+
+
+
+[
+  {
+    "userType": "Developer",
+    "image": "https://i.ibb.co/jwcf3H3/what-is-a-web-developer.jpg",
+    "description": "Explore how TaskPro can revolutionize your development workflow. Easily manage tasks and collaborate seamlessly with your team!",
+    "benefit1": "Enhance your development workflow",
+    "benefit2": "Effortlessly manage coding tasks",
+    "benefit3": "Seamless collaboration with your team"
+  },
+  {
+    "userType": "Professional",
+    "image": "https://i.ibb.co/VHSDjd5/Professional.webp",
+    "description": "Unlock the potential of TaskMaster for professionals. Efficiently manage projects and meet deadlines with ease!",
+    "benefit1": "Indispensable tool for professionals",
+    "benefit2": "Efficient project management",
+    "benefit3": "Meet deadlines with ease"
+  },
+  {
+    "userType": "Banker",
+    "image": "https://i.ibb.co/sR5wDcq/Banker.jpg",
+    "description": "TaskHub is your essential companion in banking. Simplify financial tracking and make your job significantly easier!",
+    "benefit1": "Simplify financial tracking",
+    "benefit2": "Essential for banking professionals",
+    "benefit3": "Streamline your banking tasks"
+  },
+  {
+    "userType": "Marketing Professional",
+    "image": "https://i.ibb.co/1bvdS3m/Professionalasd.webp",
+    "description": "TaskMarketer - Your go-to platform for marketing tasks. Enhance campaign management and track performance effortlessly!",
+    "benefit1": "Efficient campaign management",
+    "benefit2": "Track marketing performance",
+    "benefit3": "Boost productivity in marketing tasks"
+  }
+]

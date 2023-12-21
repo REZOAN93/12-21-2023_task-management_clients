@@ -115,77 +115,77 @@ const Registration = () => {
             <div className="text-center">
                 <div>
 
-                        <div className="card lg:w-8/12 bg-gradient-to-b from-[#0097B2] to-white text-black mx-auto shadow-lg ">
-                            <form onSubmit={handleSubmit(onSubmit)} className="card-body">
-                                <p className=' text-center text-white text-2xl lg:text-3xl font-bold'>Register</p>
-                                <div className=' flex gap-10'>
-                                    <div className="form-control  w-full">
-                                        <label className="label">
-                                            <span className="label-text font-bold text-white">First Name</span>
-                                        </label>
-                                        <input type="text" placeholder="First name" {...register("firstName", { required: true })} className="input input-bordered" />
-                                        {errors.firstName && <span className='text-red-700 font-bold'>Please Enter the First Name</span>}
-                                    </div>
-                                    <div className="form-control w-full">
-                                        <label className="label">
-                                            <span className="label-text font-bold text-white">Last Name</span>
-                                        </label>
-                                        <input type="text" placeholder="Last name" {...register("lastName", { required: true })} className="input input-bordered" />
-                                        {errors.lastName && <span className='text-red-700 font-bold'>Please Enter the Last Name</span>}
-                                    </div>
-                                    <div className="form-control w-full">
-                                        <label className="label">
-                                            <span className="label-text font-bold ">Email Address</span>
-                                        </label>
-                                        <input type="email" placeholder="Enter Email" {...register("email", { required: true })} className="input input-bordered" />
-                                        {errors.email && <span className='text-red-700 font-bold'>Please Enter the Email</span>}
-                                    </div>
+                    <div className="card lg:w-8/12  to-white text-black mx-auto shadow-lg ">
+                        <form onSubmit={handleSubmit(onSubmit)} className="card-body">
+                            <p className=' text-center text-black text-2xl lg:text-3xl font-bold'>Register</p>
+                            <div className=' flex gap-10'>
+                                <div className="form-control  w-full">
+                                    <label className="label">
+                                        <span className="label-text font-bold ">First Name</span>
+                                    </label>
+                                    <input type="text" placeholder="First name" {...register("firstName", { required: true })} className="input input-bordered" />
+                                    {errors.firstName && <span className='text-red-700 font-bold'>Please Enter the First Name</span>}
                                 </div>
-                                <div className=' flex gap-5'>
-                                   
-                                   
-                                </div>
-                                <div className=' grid grid-cols-3 gap-4 mb-3'>
                                 <div className="form-control w-full">
-                                        <label className="label">
-                                            <span className="label-text font-bold ">Password</span>
-                                        </label>
-                                        <div className=' relative w-full'>
-                                            <input type={showPassword ? "text" : "password"} placeholder="Enter Password" {...register("password", { required: true })} className="input input-bordered w-full" />
-                                            <span onClick={() => setshowPassword(!showPassword)} className=" cursor-pointer absolute right-5 top-3 text-2xl">{showPassword ? <FaEyeSlash /> : <FaEye />}</span>
-                                            {errors.password && <span className='text-red-700 font-bold'>Please Enter the Password</span>}
-                                        </div>
-                                    </div>
-                                    <div className="form-control">
-                                        <label className="label">
-                                            <span className="label-text font-bold">Gender</span>
-                                        </label>
-                                        <select className="input input-bordered" {...register("gender")}>
-                                            <option value="Male">Male</option>
-                                            <option value="Female">Female</option>
-                                            <option value="Other">Other</option>
-                                        </select>
-                                    </div>
-                                    <div className="form-control ">
-                                        <label className="label">
-                                            <span className="label-text font-bold">Date of Birth</span>
-                                        </label>
-                                        <input type="date" placeholder="date" {...register("dateOfBirth", { required: true })} className="input input-bordered" />
-                                        {errors.dateOfBirth && <span className='text-red-700 font-bold'>Please Enter the Date of Birth</span>}
-                                    </div>
+                                    <label className="label">
+                                        <span className="label-text font-bold ">Last Name</span>
+                                    </label>
+                                    <input type="text" placeholder="Last name" {...register("lastName", { required: true })} className="input input-bordered" />
+                                    {errors.lastName && <span className='text-red-700 font-bold'>Please Enter the Last Name</span>}
                                 </div>
-                                <input {...register("image", { required: true })} type="file" className="file-input w-full" />
-                                {errors.image && <span className='text-red-700 font-bold'>Please Upload the Image</span>}
-                                <div className="form-control mt-2">
-                                    <p className=' text-gray-500 text-xs text-justify mb-3'>By clicking Register, you agree to our Terms, Privacy Policy and Cookies Policy. You may receive SMS notifications from us and can opt out at any time.</p>
-                                    <input className="text-white py-2 rounded-lg text-2xl hover:bg-black cursor-pointer font-bold bg-gray-700" type="submit" value="Register" />
-                                    {error ? (<><p className=" text-red-600 text-sm text-center mt-2">{error}</p></>) : ("")}
+                                <div className="form-control w-full">
+                                    <label className="label">
+                                        <span className="label-text font-bold ">Email Address</span>
+                                    </label>
+                                    <input type="email" placeholder="Enter Email" {...register("email", { required: true })} className="input input-bordered" />
+                                    {errors.email && <span className='text-red-700 font-bold'>Please Enter the Email</span>}
                                 </div>
-                            </form>
-                            <div className=" mb-5">
-                                <p className=' text-center lg:text-lg font-bold'>Already have an Account? <span className=' text-teal-900'><Link to={'/login'}>Login now</Link></span></p>
                             </div>
+                            <div className=' flex gap-5'>
+
+
+                            </div>
+                            <div className=' grid grid-cols-3 gap-4 mb-3'>
+                                <div className="form-control w-full">
+                                    <label className="label">
+                                        <span className="label-text font-bold ">Password</span>
+                                    </label>
+                                    <div className=' relative w-full'>
+                                        <input type={showPassword ? "text" : "password"} placeholder="Enter Password" {...register("password", { required: true })} className="input input-bordered w-full" />
+                                        <span onClick={() => setshowPassword(!showPassword)} className=" cursor-pointer absolute right-5 top-3 text-2xl">{showPassword ? <FaEyeSlash /> : <FaEye />}</span>
+                                        {errors.password && <span className='text-red-700 font-bold'>Please Enter the Password</span>}
+                                    </div>
+                                </div>
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text font-bold">Gender</span>
+                                    </label>
+                                    <select className="input input-bordered" {...register("gender")}>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                                <div className="form-control ">
+                                    <label className="label">
+                                        <span className="label-text font-bold">Date of Birth</span>
+                                    </label>
+                                    <input type="date" placeholder="date" {...register("dateOfBirth", { required: true })} className="input input-bordered" />
+                                    {errors.dateOfBirth && <span className='text-red-700 font-bold'>Please Enter the Date of Birth</span>}
+                                </div>
+                            </div>
+                            <input {...register("image", { required: true })} type="file" className="file-input bg-slate-200 w-full" />
+                            {errors.image && <span className='text-red-700 font-bold'>Please Upload the Image</span>}
+                            <div className="form-control mt-2">
+                                <p className=' text-gray-500 text-xs text-justify mb-3'>By clicking Register, you agree to our Terms, Privacy Policy and Cookies Policy. You may receive SMS notifications from us and can opt out at any time.</p>
+                                <input className="text-white py-2 rounded-lg text-2xl hover:bg-black cursor-pointer font-bold bg-gray-700" type="submit" value="Register" />
+                                {error ? (<><p className=" text-red-600 text-sm text-center mt-2">{error}</p></>) : ("")}
+                            </div>
+                        </form>
+                        <div className=" mb-5">
+                            <p className=' text-center lg:text-lg font-bold'>Already have an Account? <span className=' text-teal-900'><Link to={'/login'}>Login now</Link></span></p>
                         </div>
+                    </div>
                 </div>
             </div>
         </div>
