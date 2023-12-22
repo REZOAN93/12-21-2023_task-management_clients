@@ -10,6 +10,7 @@ import useAdmin from "../../Hooks/useAdmin/useAdmin";
 
 const Header = () => {
     const { user, userSignOut } = useContext(AuthContext);
+    console.log(user)
     const [isAdmin] = useAdmin();
     const [theme, setTheme] = useState(
         localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
@@ -48,6 +49,7 @@ const Header = () => {
             <li>
                 <NavLink to={'/tasks'}>Tasks</NavLink>
             </li>
+
             <li>
                 <NavLink to={"/projects"}>Projects</NavLink>
             </li>

@@ -1,7 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import imggithub from '../../assets/github.png'
 import { GithubAuthProvider } from 'firebase/auth';
-
 import useAuth from '../Hooks/useAuth/useAuth';
 import useAxiosPublic from '../Hooks/useAxiosPublic/useAxiosPublic';
 
@@ -19,6 +18,7 @@ const GithubLogin = () => {
                 const token = credential.accessToken;
                 // The signed-in user info.
                 const user = result.user;
+                console.log(user)
                 const userLastSign = user?.metadata?.lastSignInTime;
                 const userInfo = {
                     email: user?.email,
@@ -34,6 +34,7 @@ const GithubLogin = () => {
                 // Handle Errors here.
                 const errorCode = error.code;
                 const errorMessage = error.message;
+                console.log(errorMessage)
                 // The email of the user's account used.
                 const email = error.customData.email;
                 // The AuthCredential type that was used.

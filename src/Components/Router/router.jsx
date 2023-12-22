@@ -13,6 +13,7 @@ import Support from "../Support/Support";
 import Dashboard from "./Dashboard";
 import CreateNewTasks from "../DashBoard/CreateNewTasks/CreateNewTasks";
 import PreviousTask from "../DashBoard/PreviousTask";
+import TaskManagement from "../DashBoard/TaskManagement";
 
 export const router = createBrowserRouter([
     {
@@ -57,13 +58,26 @@ export const router = createBrowserRouter([
         path: "dashboard",
         element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
         children: [
-              {
+            {
                 path: 'createNewTasks',
                 element: <PrivateRoute><CreateNewTasks></CreateNewTasks></PrivateRoute>
-              },
-              {
+            },
+            {
                 path: 'previoustask',
                 element: <PrivateRoute><PreviousTask></PreviousTask></PrivateRoute>
+            },
+            {
+                path: 'managetask',
+                element: <PrivateRoute><TaskManagement></TaskManagement></PrivateRoute>
+            },
+            {
+                path: "profileinfo",
+                element: <PrivateRoute><Profile /></PrivateRoute>,
+            },
+               {
+                path: 'updateItems/:id',
+                element: <PrivateRoute><UpdateItems></UpdateItems></PrivateRoute>,
+                loader: ({ params }) => fetch(`http://localhost:5000/pet/${params.id}`)
               },
             //   {
             //     path: 'myDonationCampaigns',
@@ -95,11 +109,7 @@ export const router = createBrowserRouter([
             //     path: 'alldonationcampaigns',
             //     element: <Adminroute><Alldonationcampaigns></Alldonationcampaigns></Adminroute>
             //   },
-            //   {
-            //     path: 'updateItems/:id',
-            //     element: <PrivateRoute><UpdateItems></UpdateItems></PrivateRoute>,
-            //     loader: ({ params }) => fetch(`https://11-23-2023-pet-adoption-server.vercel.app/pet/${params.id}`)
-            //   },
+           
             //   {
             //     path: 'updateCampaigns/:id',
             //     element: <PrivateRoute><UpdateDonation></UpdateDonation></PrivateRoute>,

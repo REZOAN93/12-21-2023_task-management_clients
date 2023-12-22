@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { VscRequestChanges } from "react-icons/vsc";
 import { FaBookmark, FaCalendar, FaDonate, FaHome, FaList, FaSearch, FaShoppingCart, FaUsers, FaVoicemail } from 'react-icons/fa';
 import { SiCampaignmonitor } from "react-icons/si";
 import { NavLink, Outlet } from 'react-router-dom';
-import { MdAdd, MdBookmarkAdded, MdDataset, MdEmail } from "react-icons/md";
+import { MdAdd, MdBookmarkAdded, MdDataset, MdEmail, MdManageAccounts } from "react-icons/md";
 import Header from '../Shared/Header/Header';
 import useAdmin from '../Hooks/useAdmin/useAdmin';
+import { AiFillProfile } from 'react-icons/ai';
+import { AuthContext } from '../Context/AuthProvider';
 
 
 const Dashboard = () => {
+    const { user} = useContext(AuthContext);
+    console.log(user)
     //TODO get is admin value from the data Base
     const [isAdmin] = useAdmin();
     // const isAdmin=true;
@@ -23,7 +27,9 @@ const Dashboard = () => {
                         {
                             isAdmin ? <>
                                 <li><NavLink to="/dashboard/createNewTasks"><MdAdd /> Create New Tasks</NavLink></li>
-                                <li><NavLink to="/dashboard/previoustask"><MdBookmarkAdded />Previous Tasks</NavLink></li>
+                                <li><NavLink to="/dashboard/previoustask"><MdBookmarkAdded />Personal Tasks Details</NavLink></li>
+                                <li><NavLink to="/dashboard/managetask"><MdManageAccounts />Task Management</NavLink></li>
+                                <li><NavLink to="/dashboard/profileinfo"><AiFillProfile />Profile</NavLink></li>
                                 {/* <li><NavLink to="/dashboard/adoptionrequest"><VscRequestChanges /> Adoption Request</NavLink></li>
                                 <li><NavLink to="/dashboard/createDonation"><MdAdd /> Create Donation Campaign</NavLink></li>
                                 <li><NavLink to="/dashboard/myDonationCampaigns"><MdBookmarkAdded /> My Donation Campaigns</NavLink></li>
@@ -33,7 +39,9 @@ const Dashboard = () => {
                                 <li><NavLink to="/dashboard/alldonationcampaigns"><SiCampaignmonitor /> All Donation Campaigns</NavLink></li> */}
                             </> : <>
                                 <li><NavLink to="/dashboard/createNewTasks"><MdAdd /> Create New Tasks</NavLink></li>
-                                <li><NavLink to="/dashboard/previoustask"><MdBookmarkAdded />Previous Tasks</NavLink></li>
+                                <li><NavLink to="/dashboard/previoustask"><MdBookmarkAdded />Personal Tasks Details</NavLink></li>
+                                <li><NavLink to="/dashboard/managetask"><MdManageAccounts />Task Management</NavLink></li>
+                                <li><NavLink to="/dashboard/profileinfo"><AiFillProfile />Profile</NavLink></li>
                                 {/*<li><NavLink to="/dashboard/adoptionrequest"><VscRequestChanges /> Adoption Request</NavLink></li>
                                 <li><NavLink to="/dashboard/createDonation"><MdAdd /> Create Donation Campaign</NavLink></li>
                                 <li><NavLink to="/dashboard/myDonationCampaigns"><MdBookmarkAdded /> My Donation Campaigns</NavLink></li>
@@ -45,6 +53,11 @@ const Dashboard = () => {
                         <li><NavLink to="/"><FaHome></FaHome>Home</NavLink></li>
 
                     </ul>
+                    <div className=' flex flex-col bg-slate-100 m-3 rounded-lg items-center justify-center'>
+                        <img className=' rounded-full w-32 h-32' src={user.photoURL} alt="" />
+                        <p>{user.displayName}</p>
+                        <p>{user.email}</p>
+                    </div>
                 </div>
                 <div className=' flex-1'>
                     <Outlet></Outlet>
