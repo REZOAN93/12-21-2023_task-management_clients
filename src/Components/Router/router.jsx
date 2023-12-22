@@ -14,6 +14,8 @@ import Dashboard from "./Dashboard";
 import CreateNewTasks from "../DashBoard/CreateNewTasks/CreateNewTasks";
 import PreviousTask from "../DashBoard/PreviousTask";
 import TaskManagement from "../DashBoard/TaskManagement";
+import UpdateItems from "../DashBoard/UpdateItems/UpdateItems";
+import Cards from "../DashBoard/Cards";
 
 export const router = createBrowserRouter([
     {
@@ -74,11 +76,11 @@ export const router = createBrowserRouter([
                 path: "profileinfo",
                 element: <PrivateRoute><Profile /></PrivateRoute>,
             },
-               {
+            {
                 path: 'updateItems/:id',
                 element: <PrivateRoute><UpdateItems></UpdateItems></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/pet/${params.id}`)
-              },
+                loader: ({ params }) => fetch(`http://localhost:5000/task/${params.id}`)
+            },
             //   {
             //     path: 'myDonationCampaigns',
             //     element: <PrivateRoute><MyDonationCampaigns></MyDonationCampaigns></PrivateRoute>
@@ -109,7 +111,7 @@ export const router = createBrowserRouter([
             //     path: 'alldonationcampaigns',
             //     element: <Adminroute><Alldonationcampaigns></Alldonationcampaigns></Adminroute>
             //   },
-           
+
             //   {
             //     path: 'updateCampaigns/:id',
             //     element: <PrivateRoute><UpdateDonation></UpdateDonation></PrivateRoute>,

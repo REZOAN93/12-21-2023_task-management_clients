@@ -10,14 +10,19 @@ import { useContext, useEffect, useState } from 'react';
 import useAxiosPublic from '../Hooks/useAxiosPublic/useAxiosPublic';
 import { NavLink } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthProvider';
-import useAdmin from '../Hooks/useAdmin/useAdmin';
 import { AwesomeButton, AwesomeButtonShare } from "react-awesome-button";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 
 const Banner = () => {
+    useEffect(() => {
+        AOS.init({
+          duration: 1200
+         });
+      }, [])
     const { user, userSignOut } = useContext(AuthContext);
-    const [isAdmin] = useAdmin();
     const axiosPublic = useAxiosPublic();
     const [slider, setSlider] = useState([])
     useEffect(() => {
@@ -44,7 +49,7 @@ const Banner = () => {
                 {
                     slider?.map(na => <>
                         <SwiperSlide key={na._id} className=' w-full h-64 lg:h-[500px]' >
-                            <div className=''>
+                            <div data-aos="zoom-in-up" className=''>
                                 <img className=' w-full h-64 lg:h-[500px]' src={na.image} alt="" />
                                 <div className='w-full bg-gradient-to-r from-slate-400 absolute top-0 text-center space-y-5 lg:space-y-16 pt-20 h-full'>
                                     <p className=' font-bold text-white text-xl lg:text-6xl'>{na.title}</p>
@@ -55,7 +60,7 @@ const Banner = () => {
                                     }
                                     </div>
                                     <div className=' mt-20'>
-                                        {user && isAdmin === true ? (
+                                        {user === true ? (
                                             <NavLink className="px-10 py-2 btn text-white bg-[#0097B2] hover:bg-[#5ad9f0] hover:text-black font-semibold text-3xl glass" to={'/dashboard/createNewTasks'}>Let's Explore</NavLink>
                                         ) : user ? (
 

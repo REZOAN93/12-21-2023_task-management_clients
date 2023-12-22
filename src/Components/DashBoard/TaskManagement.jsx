@@ -8,16 +8,16 @@ import useAuth from '../Hooks/useAuth/useAuth';
 import { FaEdit, FaTrashAlt } from 'react-icons/fa';
 import useAxiosPublic from '../Hooks/useAxiosPublic/useAxiosPublic';
 
+
 const TaskManagement = () => {
-    const axiosSecure = useAxiosSecure()
-    const axiosPublic=useAxiosPublic()
+    const axiosPublic = useAxiosPublic()
     const { user } = useAuth()
     // const [pause, setPause] = useState(false)
 
     const { data: taskList = [], refetch } = useQuery({
         queryKey: ['previousTask'],
         queryFn: async () => {
-            const res = await axiosSecure.get(`/previousTask?email=${user?.email}`)
+            const res = await axiosPublic.get(`/previousTask?email=${user?.email}`)
             return res.data
         }
     })
@@ -50,11 +50,9 @@ const TaskManagement = () => {
         });
     }
 
-
     return (
         <div>
             <div className='pb-10'>
-
                 <div className="overflow-x-auto">
                     <table className="table table-zebra">
                         {/* head */}

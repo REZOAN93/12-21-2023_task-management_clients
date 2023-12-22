@@ -1,17 +1,22 @@
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
-import { Link, useNavigate } from 'react-router-dom';
-import { useContext, useState } from 'react';
+import {useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import useAxiosPublic from '../../Hooks/useAxiosPublic/useAxiosPublic';
 import useAuth from '../../Hooks/useAuth/useAuth';
-import useAxiosSecure from '../../Hooks/UseAxiosSecure/useAxiosSecure';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 const CreateNewTasks = () => {
+    useEffect(() => {
+        AOS.init({
+          duration: 1200
+         });
+      }, [])
     const { register, handleSubmit, reset, formState: { errors } } = useForm()
     const { user } = useAuth()
     const axiosPublic = useAxiosPublic()
-    const axiosSecure = useAxiosSecure()
     const navigate = useNavigate();
     const [error, setError] = useState("");
     const dateString = new Date();
@@ -31,7 +36,7 @@ const CreateNewTasks = () => {
         const taskAddedby = user.email;
         const taskData = { task_name, description, deadlines, priority, task_status, date_added, taskAddedby }
         console.log(taskData)
-        axiosSecure.post('/addtaskbyuser', taskData)
+        axiosPublic.post('/addtaskbyuser', taskData)
             .then(res => {
                 if (res?.data?.acknowledged === true) {
                     navigate('/dashboard/previoustask')
@@ -48,7 +53,7 @@ const CreateNewTasks = () => {
 
 
     return (
-        <div className="text-black px-10 py-5">
+        <div data-aos="zoom-in-down" className="text-black px-10 py-5">
             <form onSubmit={handleSubmit(onSubmit)} className=' px-2 py-3'>
                 <p className=' text-center text-black text-2xl lg:text-3xl font-bold'>Add New Task</p>
                 <div className=' flex gap-10'>

@@ -20,20 +20,20 @@ const useAxiosSecure = () => {
     })
 
     // Interceptor 401 & 403 status
-    axiosSecure.interceptors.response.use(function (response) {
-        return response;
-    }, async (error) => {
-        const status = error.response.status;
-        console.log('Status Error in the interceptors', status)
-        // For 401 &403 Logout the user & move the user to the login page
-        if (status === 401 || status === 403) {
-            await userSignOut()
-            navigate('/')
-        }
-        return Promise.reject(error);
-    })
+    // axiosSecure.interceptors.response.use(function (response) {
+    //     return response;
+    // }, async (error) => {
+    //     const status = error.response.status;
+    //     console.log('Status Error in the interceptors', status)
+    //     // For 401 &403 Logout the user & move the user to the login page
+    //     if (status === 401 || status === 403) {
+    //         await userSignOut()
+    //         navigate('/')
+    //     }
+    //     return Promise.reject(error);
+    // })
 
-    return axiosSecure
+    // return axiosSecure
 };
 
 export default useAxiosSecure;

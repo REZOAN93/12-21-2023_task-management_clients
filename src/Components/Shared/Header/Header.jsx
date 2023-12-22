@@ -4,14 +4,12 @@ import "./Header.css";
 import { useContext, useEffect, useState } from "react";
 
 import { AuthContext } from "../../Context/AuthProvider";
-import useAdmin from "../../Hooks/useAdmin/useAdmin";
 // import useAdmin from "../../Hooks/useAdmin";
 
 
 const Header = () => {
     const { user, userSignOut } = useContext(AuthContext);
-    console.log(user)
-    const [isAdmin] = useAdmin();
+    // console.log(user)
     const [theme, setTheme] = useState(
         localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
     );
@@ -168,7 +166,7 @@ const Header = () => {
                                 </label>
                                 <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[100] p-2 shadow bg-[#adf6fc] rounded-box w-52">
                                     <li><a onClick={() => navigate("/profile")}><button>Profile</button></a></li>
-                                    {user && isAdmin === true ? (
+                                    {user === true ? (
                                         <NavLink className="px-3" to={'/dashboard/createNewTasks'}>Dashboard</NavLink>
                                     ) : user ? (
                                         <NavLink className="px-3" to={'/dashboard/createNewTasks'}>Dashboard</NavLink>

@@ -12,7 +12,7 @@ import { AuthContext } from '../Context/AuthProvider';
 
 const Dashboard = () => {
     const { user} = useContext(AuthContext);
-    console.log(user)
+    // console.log(user)
     //TODO get is admin value from the data Base
     const [isAdmin] = useAdmin();
     // const isAdmin=true;
@@ -22,7 +22,13 @@ const Dashboard = () => {
                 <Header></Header>
             </div>
             <div className='flex'>
+                
                 <div className=' w-64 min-h-screen bg-[#0097B2]'>
+                <div className=' flex flex-col bg-slate-100 m-3 rounded-lg items-center justify-center'>
+                        <img className=' rounded-full w-24 h-24 mt-2' src={user.photoURL} alt="" />
+                        <p>{user.displayName}</p>
+                        <p>{user.email}</p>
+                    </div>
                     <ul className='menu p-2 pt-5 space-y-1'>
                         {
                             isAdmin ? <>
@@ -30,6 +36,7 @@ const Dashboard = () => {
                                 <li><NavLink to="/dashboard/previoustask"><MdBookmarkAdded />Personal Tasks Details</NavLink></li>
                                 <li><NavLink to="/dashboard/managetask"><MdManageAccounts />Task Management</NavLink></li>
                                 <li><NavLink to="/dashboard/profileinfo"><AiFillProfile />Profile</NavLink></li>
+                                {/* <li><NavLink to="/dashboard/example"><MdManageAccounts />Task</NavLink></li> */}
                                 {/* <li><NavLink to="/dashboard/adoptionrequest"><VscRequestChanges /> Adoption Request</NavLink></li>
                                 <li><NavLink to="/dashboard/createDonation"><MdAdd /> Create Donation Campaign</NavLink></li>
                                 <li><NavLink to="/dashboard/myDonationCampaigns"><MdBookmarkAdded /> My Donation Campaigns</NavLink></li>
@@ -41,6 +48,7 @@ const Dashboard = () => {
                                 <li><NavLink to="/dashboard/createNewTasks"><MdAdd /> Create New Tasks</NavLink></li>
                                 <li><NavLink to="/dashboard/previoustask"><MdBookmarkAdded />Personal Tasks Details</NavLink></li>
                                 <li><NavLink to="/dashboard/managetask"><MdManageAccounts />Task Management</NavLink></li>
+                                {/* <li><NavLink to="/dashboard/example"><MdManageAccounts />Task</NavLink></li> */}
                                 <li><NavLink to="/dashboard/profileinfo"><AiFillProfile />Profile</NavLink></li>
                                 {/*<li><NavLink to="/dashboard/adoptionrequest"><VscRequestChanges /> Adoption Request</NavLink></li>
                                 <li><NavLink to="/dashboard/createDonation"><MdAdd /> Create Donation Campaign</NavLink></li>
@@ -51,13 +59,8 @@ const Dashboard = () => {
                         <div className=' divider'></div>
                         {/* Shared NavLink */}
                         <li><NavLink to="/"><FaHome></FaHome>Home</NavLink></li>
-
                     </ul>
-                    <div className=' flex flex-col bg-slate-100 m-3 rounded-lg items-center justify-center'>
-                        <img className=' rounded-full w-32 h-32' src={user.photoURL} alt="" />
-                        <p>{user.displayName}</p>
-                        <p>{user.email}</p>
-                    </div>
+                   
                 </div>
                 <div className=' flex-1'>
                     <Outlet></Outlet>
