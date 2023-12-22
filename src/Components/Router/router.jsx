@@ -15,7 +15,7 @@ import CreateNewTasks from "../DashBoard/CreateNewTasks/CreateNewTasks";
 import PreviousTask from "../DashBoard/PreviousTask";
 import TaskManagement from "../DashBoard/TaskManagement";
 import UpdateItems from "../DashBoard/UpdateItems/UpdateItems";
-import Cards from "../DashBoard/Cards";
+import TaskList from "../DashBoard/TaskList";
 
 export const router = createBrowserRouter([
     {
@@ -81,42 +81,11 @@ export const router = createBrowserRouter([
                 element: <PrivateRoute><UpdateItems></UpdateItems></PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/task/${params.id}`)
             },
-            //   {
-            //     path: 'myDonationCampaigns',
-            //     element: <PrivateRoute><MyDonationCampaigns></MyDonationCampaigns></PrivateRoute>
-            //   },
-            //   {
-            //     path: 'createDonation',
-            //     element: <PrivateRoute><CreateDonation></CreateDonation></PrivateRoute>
-            //   },
-            //   {
-            //     path: 'paymenthistroy',
-            //     element: <PaymentHistory></PaymentHistory>
-            //   },
-            //   {
-            //     path: 'adoptionrequest',
-            //     element: <MyAdoptionRequest></MyAdoptionRequest>
-            //   },
-
-            //   // admin routes
-            //   {
-            //     path: 'allPets',
-            //     element: <Adminroute><AllPets></AllPets></Adminroute>
-            //   },
-            //   {
-            //     path: 'allusers',
-            //     element: <Adminroute><AllUser></AllUser></Adminroute>
-            //   },
-            //   {
-            //     path: 'alldonationcampaigns',
-            //     element: <Adminroute><Alldonationcampaigns></Alldonationcampaigns></Adminroute>
-            //   },
-
-            //   {
-            //     path: 'updateCampaigns/:id',
-            //     element: <PrivateRoute><UpdateDonation></UpdateDonation></PrivateRoute>,
-            //     loader: ({ params }) => fetch(`https://11-23-2023-pet-adoption-server.vercel.app/campaigns/${params.id}`)
-            //   }
+            {
+                path: 'previoustasks',
+                element: <PrivateRoute><TaskList></TaskList></PrivateRoute>,
+            }
+            
         ]
     }
 ]);
